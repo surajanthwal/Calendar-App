@@ -1,0 +1,79 @@
+<div class="modal-header center">
+   <h3 class="modal-title" id="modal-title">Create an Event!!</h3>
+</div><br>
+
+<div class="container-fluid">
+  <form name="myForm" ng-submit="vm.ok()">
+
+	<div class="form-group row">
+	  <label for="example-text-input" class="col-xs-2 col-form-label">Title</label>
+	  <div class="col-xs-10">
+	    <input class="form-control" type="text" name="title" value="Artisanal kale" id="example-text-input" ng-model="vm.newEvent.title" required />
+	    <div role="alert">
+			    <span class="form-group has-warning" ng-show="myForm.title.$error.required">
+			        Required!</span>
+	    </div>
+	  </div>
+	</div>
+
+    <div class="form-group row">
+      <label for="exampleTextarea" class="col-xs-2 col-form-label">Description</label>
+      <div class="col-xs-10">
+        <textarea class="form-control" id="exampleTextarea" name="description" ng-model="vm.newEvent.description" rows="2" required></textarea>
+        <div role="alert">
+		  <span class="form-group has-warning" ng-show="myForm.description.$error.required">
+		  Required!</span>
+	    </div>
+	  </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="example-datetime-local-input" class="col-xs-2 col-form-label">Start DateTime</label>
+      <div class="col-xs-10">
+        <input class="form-control" type="datetime-local" id="example-datetime-local-input" name="startTime" ng-model="startDateTime" placeholder="yyyy-MM-ddTHH:mm" required />
+        <div role="alert">
+		  <span class="form-group has-warning" ng-show="myForm.startTime.$error.required">
+		  Required!</span>
+	    </div>
+
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="example-datetime-local-input" class="col-xs-2 col-form-label">End DateTime</label>
+      <div class="col-xs-10">
+        <input class="form-control" type="datetime-local" id="example-datetime-local-input" name="endTime" ng-model="endDateTime" placeholder="yyyy-MM-ddTHH:mm" required />
+        <div role="alert">
+		  <span class="form-group has-warning" ng-show="myForm.endTime.$error.required">
+		  Required!</span>
+	    </div>
+
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="example-email-input" class="col-xs-2 col-form-label">Your Email</label>
+      <div class="col-xs-10">
+        <input class="form-control" type="email"  id="example-email-input" name="yourEmail" ng-model="vm.newEvent.yourEmail" required/>
+        <div role="alert">
+		  <span class="form-group has-warning" ng-show="myForm.yourEmail.$error.required">
+		  Required!</span>
+	    </div>
+      </div>
+    </div>
+
+    <div class="form-group row" ng-repeat="attendent in vm.newEvent.attendees">
+        <label for="example-email-input" class="col-xs-2 col-form-label">Attendent Email </label>
+      	<div class="col-xs-10">
+      	  <input class="form-control" type="email" name="attendentEmail" placeholder="{{attendent.placeholder}}" ng-model="attendent.email" required/>
+		  <div role="alert">
+		    <span class="form-group has-warning" ng-show="myForm.attendentEmail.$error.required">
+		    Required!</span>
+		  </div>
+        </div>
+    </div>
+    <button ng-click="vm.add()">Add invitee</button><br><br>
+    <input class="btn btn-primary" type="submit" value="Invite"/>
+    <button class="btn btn-warning" type="button" ng-click="vm.cancel()">Cancel</button><br><br>
+  </form>
+</div>

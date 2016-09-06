@@ -1,0 +1,41 @@
+<div class="modal-header center">
+   <h3 class="modal-title" id="modal-title">Event!!</h3>
+</div><br>
+
+<div class="container-fluid">
+  <form name="myForm">
+
+	<div class="form-group row">
+	  <label for="example-text-input" class="col-xs-2 col-form-label">Title</label>
+	  <div class="col-xs-10">
+	    <input class="form-control" type="text" name="title" value="Artisanal kale" id="example-text-input" ng-model="vm.event.title" disabled/>
+	  </div>
+	</div>
+
+    <div class="form-group row">
+      <label for="example-datetime-local-input" class="col-xs-2 col-form-label">Start DateTime</label>
+      <div class="col-xs-10">
+        <input class="form-control" type="text" id="example-datetime-local-input" name="startTime" ng-model="vm.event.start" placeholder="yyyy-MM-ddTHH:mm" disabled />
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="example-datetime-local-input" class="col-xs-2 col-form-label">End DateTime</label>
+      <div class="col-xs-10">
+        <input class="form-control" type="text" id="example-datetime-local-input" name="endTime" ng-model="vm.event.end" placeholder="yyyy-MM-ddTHH:mm" disabled />
+      </div>
+    </div>
+  
+  
+    <div class="form-group row" ng-show="vm.event.attendees" ng-repeat="attendent in vm.event.attendees">
+        <label for="example-email-input" class="col-xs-2 col-form-label">Attendent Email </label>
+      	<div class="col-xs-10">
+      	  <input class="form-control" type="email" name="attendentEmail" ng-model="attendent.email" disabled/>
+        </div>
+    </div>
+  
+
+  </form>
+  <button class="btn btn-warning" type="button" ng-click="vm.cancel()">Exit</button><br><br>
+
+</div>
